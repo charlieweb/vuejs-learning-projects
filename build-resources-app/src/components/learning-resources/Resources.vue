@@ -31,7 +31,8 @@ export default {
   },
   provide() {
     return {
-      resources: this.storedResources
+      resources: this.storedResources,
+      addResource: this.AddResources
     }
   },
   components: {
@@ -39,8 +40,21 @@ export default {
     'add-resources': AddResources
   },
   methods: {
-    setSelectedTab(tab) {
+    setSelectedTab (tab) {
       this.selectedTab = tab;
+    },
+    AddResources (title, description, url) {
+      const newResource = {
+        id: new Date().toISOString(),
+        title: title,
+        description: description,
+        link: url
+      };
+      this.storedResources.unshift(newResource);
+      this.selectedTab = 'stored-resources';
+    },
+    deleteResource (resourceId) {
+      this.storedResources = this.storedResources.filter(res => res.id !== resourceId);
     }
   }
 }
@@ -51,5 +65,7 @@ export default {
   <base-button @click="setSelectedTab('stored-resources')" :mode="storeResButtons">Stored Resources</base-button>
   <base-button @click="setSelectedTab('add-resources')" :mode="addResButton">Add Resource</base-button>
   </base-card>
+  <keep-alive>  
   <component :is="selectedTab"></component>
+  </keep-alive>
 </template>
