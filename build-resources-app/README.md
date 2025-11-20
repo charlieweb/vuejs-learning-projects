@@ -19,20 +19,17 @@ This template should help get you started developing with Vue 3 in Vite.
 
 See [Vite Configuration Reference](https://vite.dev/config/).
 
-## Project Setup
+## Project Cover
 
-```sh
-pnpm install
-```
+- Using the Options Api:
+  - Computed Properties
+  - Methods
+  - V-for
+  - Data Bind
+  - Templates
 
-### Compile and Hot-Reload for Development
+- Components:
+  - Create Vue Components
+  - Dynamic Components
+  - Slots & scoped slots
 
-```sh
-pnpm dev
-```
-
-### Compile and Minify for Production
-
-```sh
-pnpm build
-```
