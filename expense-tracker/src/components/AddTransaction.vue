@@ -2,12 +2,12 @@
 import { ref, defineEmits } from 'vue'
 import { toast } from 'vue3-toastify'
 const API_URL = import.meta.env.VITE_API_URL
-const text = ref('')
-const amount = ref('')
-const emit = defineEmits(['add-transaction'])
+const text = ref('');
+const amount = ref('');
+const emit = defineEmits(['add-transaction']);
 const onSubmit = async () => {
   if (!text.value || !amount.value) {
-    toast.error('Please enter both text and amount')
+    toast.error('Please enter both text and amount');
     return
   }
   const newTransaction = {
@@ -24,15 +24,15 @@ const onSubmit = async () => {
       body: JSON.stringify(newTransaction)
     })
     if (!response.ok) {
-      throw new Error('Failed to submit Expense.')
+      throw new Error('Failed to submit Expense.');
     }
   } catch (error) {
-    console.error('Error submitting transaction:', error)
-    toast.error('Failed to submit Expense.')
+    toast.error('Failed to submit Expense.');
   }
 
   emit('add-transaction', newTransaction)
-  toast.success('Transaction added successfully')
+  toast.success('Transaction added successfully');
+  
   // Clear the form
   amount.value = ''
   text.value = ''

@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps, defineEmits } from 'vue'
+import { defineProps, defineEmits } from 'vue';
 const props = defineProps({
   transactions: {
     type: Array
@@ -7,7 +7,7 @@ const props = defineProps({
 })
 const emits = defineEmits(['delete-transaction'])
 function deleteTransaction(id) {
-  emits('delete-transaction', id)
+  emits('delete-transaction', id);
 }
 </script>
 <template>

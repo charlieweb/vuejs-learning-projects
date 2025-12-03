@@ -31,7 +31,6 @@ const loadTransactions = async () => {
     }
     transactions.value = loadedTransactions;
   } catch (error) {
-    console.error('Error fetching transactions:', error);
     toast.error('Failed to load transactions.');
   }
 };
@@ -70,11 +69,10 @@ const handleTransactionDelete = async (id) => {
     toast.success('Transaction deleted successfully');
   }
   catch(error) {
-    console.error('Error deleting transaction:', error);
     toast.error('Failed to delete transaction.');
   } 
 }
-onMounted(loadTransactions)
+onMounted(loadTransactions);
 </script>
 
 <template>
@@ -86,7 +84,3 @@ onMounted(loadTransactions)
     <AddTransaction @add-transaction="handleTransaction" />
   </div>
 </template>
-
-<style>
-
-</style>
